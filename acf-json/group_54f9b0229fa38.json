@@ -1,0 +1,38 @@
+{
+    "key": "group_54f9b0229fa38",
+    "title": "Match Update Players Option",
+    "fields": [
+        {
+            "key": "field_54f9b03e48e42",
+            "label": "Update Players on Save",
+            "name": "update_players_on_save",
+            "type": "true_false",
+            "instructions": "Check for a new game that has just happened to save having to update caps\/goals on all players, uncheck for an historical game you're just adding. If checked it will auto-uncheck on save to avoid incrementing values too many times.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Update Players on Save",
+            "default_value": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "match"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "modified": 1436879601
+}

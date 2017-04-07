@@ -1,0 +1,43 @@
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.byline,
+.updated:not(.published){
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+a.player_card {
+	display: inline-block;
+	background: #eee;
+	padding: 0 1rem 0 0;
+	margin: 0 1rem 1rem 0;
+	
+	.post-thumbnail {
+		margin: 0 1rem 0 0;	
+	}
+	
+	&:hover {
+		background: #ddd;
+	}
+}
