@@ -89,12 +89,17 @@ get_header(); ?>
 						    	// var_dump($match);
 						    	$result_terms = get_the_terms( $match->ID, 'result');
 						    	$results = [];
-						    	foreach ( $result_terms as $term ) {
-						    		$results[] = $term->name;
-						    		// var_dump($term);
-						    		// $result_permalink = get_term_link( $term );
-						    	}
-						    	$result = $results[0];
+						    	if ( is_array( $result_terms) ) {
+							    	foreach ( $result_terms as $term ) {
+							    		$results[] = $term->name;
+							    		// var_dump($term);
+							    		// $result_permalink = get_term_link( $term );
+							    	}
+
+							    	$result = $results[0];
+							    } else {
+							    	$result = '-';
+							    }
 						    	
 						    	$type_terms = get_the_terms( $match->ID, 'match-type');
 						    	$types = [];
@@ -133,9 +138,19 @@ get_header(); ?>
 							    }
 						    }
 						}
-						
-						$coach_table .= "<td>" . round( $friendly_wins / $friendly_total * 100, 2) . "</td>
-						<td>" . round( $unfriendly_wins / $unfriendly_total * 100, 2) . "</td>
+						if ( $friendly_total > 0 ) {
+							$friendly_win_average = round( $friendly_wins / $friendly_total * 100, 2);
+						} else {
+							$friendly_win_average = '-';
+						}
+
+						if ( $unfriendly_total > 0 ) {
+							$unfriendly_win_average = round( $unfriendly_wins / $unfriendly_total * 100, 2);
+						} else {
+							$unfriendly_win_average = '-';
+						}
+						$coach_table .= "<td>" . $friendly_win_average . "</td>
+						<td>" . $unfriendly_win_average . "</td>
 					</tr>";
 				}
 				$coach_table .= "</tbody>
